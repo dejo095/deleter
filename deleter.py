@@ -1,17 +1,17 @@
 import sys
 from funcs import findUniqueDirs, printAllPaths, deleteAllPaths
 
-start_directory = input('Please enter folder from where to start removing node_modules folders and files, use full path: ')
+rootDir = input('Enter path from where to remove node_modules, use full path: ')
 
-if len(start_directory) < 1:
-  print("Must enter start directory")
+if len(rootDir) < 1:
+  print("Must enter root directory!")
 else:
-  items = findUniqueDirs(start_directory)
-  print(f'From these paths node_modules will be deleted:')
+  items = findUniqueDirs(rootDir)
+  print(f'Node_modules will be deleted from following paths:')
   printAllPaths(items)
-  confirm = input('Are you sure you want to continue?: ')
+  confirm = input('Are you sure you want to continue with deleting?: ')
   if confirm.lower() == 'y':
     deleteAllPaths(items)
   else:
-    print('Ok, Bye!')
+    print('Ok, nothing was deleted! Bye!')
     sys.exit()

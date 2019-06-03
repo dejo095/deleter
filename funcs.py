@@ -3,7 +3,7 @@ import shutil
 
 def findUniqueDirs(rootDir):
 
-  deletants = []
+  delete_items = []
 
   for dirName, subdirList, fileList in os.walk(rootDir):
     # check only directories that have node_modules
@@ -13,9 +13,9 @@ def findUniqueDirs(rootDir):
       # extract from string whole path included node_modules
       path = dirName[:pos+12]
       # add path to list if path doesnt already exists
-      if path not in deletants:
-        deletants.append(path)
-  return deletants
+      if path not in delete_items:
+        delete_items.append(path)
+  return delete_items
 
 
 def printAllPaths(items):
@@ -31,4 +31,4 @@ def deleteAllPaths(listing):
     except OSError as e:
       print("Error: %s - %s." % (e.filename, e.strerror))
   else:
-    print('All removed')
+    print('All done')
