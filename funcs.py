@@ -30,5 +30,3 @@ def deleteAllPaths(listing):
       print(f'Removed {item}')
     except OSError as e:
       print("Error: %s - %s." % (e.filename, e.strerror))
-  else:
-    print('All done')
